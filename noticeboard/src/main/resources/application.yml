@@ -28,6 +28,6 @@ spring:
       
   liquibase:
     enabled: false
-logging:
-  level:
-    springfox.* : DEBUG
+#logging:
+#  level:
+#    springfox.* : DEBUG
