@@ -1,0 +1,33 @@
+#General
+server:
+  port: 7000
+  
+#Database
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:notice
+      username: sa
+      password:
+      
+#JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: H2
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernae:
+        format_sql: true        
+
+#H2
+  h2:
+    console:
+      enabled: true
+      
+  liquibase:
+    enabled: false
+logging:
+  level:
+    springfox.* : DEBUG
