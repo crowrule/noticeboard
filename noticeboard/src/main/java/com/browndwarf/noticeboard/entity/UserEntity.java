@@ -1,6 +1,5 @@
 package com.browndwarf.noticeboard.entity;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Arrays;

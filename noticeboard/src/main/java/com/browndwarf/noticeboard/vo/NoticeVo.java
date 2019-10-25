@@ -1,7 +1,5 @@
 package com.browndwarf.noticeboard.vo;
 
-import java.time.LocalDateTime;
-
 import com.browndwarf.noticeboard.dto.NoticeDto;
 
 import lombok.Getter;
