@@ -8,10 +8,14 @@ import lombok.Setter;
 @Getter @Setter
 public class NoticeVo extends NoticeDto {
 
-	public long id;
+	private long id;
 	
-	public String createTime;	
+	private String createTime;	
 	
-	public String lastUpdateime;
-	
+	private String lastUpdateime;
+
+	public NoticeVo() {
+		super();
+		
+	}
 }
