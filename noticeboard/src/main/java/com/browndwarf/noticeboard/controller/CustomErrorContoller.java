@@ -1,7 +1,5 @@
 package com.browndwarf.noticeboard.controller;
 
-import java.util.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.browndwarf.noticeboard.controller.ControllerException.AuthFailException;
+import com.browndwarf.noticeboard.controller.ControllerException.AuthorizeFailException;
 
 @Controller
 public class CustomErrorContoller implements ErrorController {
@@ -22,15 +23,17 @@ public class CustomErrorContoller implements ErrorController {
     }
     
     @RequestMapping("/error")
-    public String handleError(HttpServletRequest request, Model model) {
+    public void handleError(HttpServletRequest request, Model model) throws AuthFailException, AuthorizeFailException, Exception {
     	Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
     	HttpStatus httpStatus = HttpStatus.valueOf(Integer.valueOf(status.toString()));
         
-        model.addAttribute("code", status.toString());
-        model.addAttribute("msg", httpStatus.getReasonPhrase());
-        model.addAttribute("timestamp", new Date());
+    	switch(Integer.valueOf(status.toString())) {
+    	case 401 : throw new AuthFailException("Invalid User");
+    	case 403 : throw new AuthorizeFailException("Unauthorized User");
+    	default :
+    		throw new Exception(httpStatus.getReasonPhrase());
+    	}
 
-        return "error";
     }
 
 }

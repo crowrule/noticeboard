@@ -15,7 +15,6 @@ import com.browndwarf.noticeboard.entity.NoticeEntity;
 import com.browndwarf.noticeboard.entity.UserEntity;
 import com.browndwarf.noticeboard.repository.NoticeRepository;
 import com.browndwarf.noticeboard.repository.UserRepository;
-import com.browndwarf.noticeboard.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
 
